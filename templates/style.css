@@ -1,0 +1,247 @@
+/* Login Page */
+
+.login {
+    background-color: #10502b;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .login .overlap-group-wrapper {
+    background-color: #10502b;
+    width: 1152px;
+    height: 700px;
+  }
+  
+  .login .overlap-group {
+    position: relative;
+    width: 360px;
+    height: 511px;
+    top: 95px;
+    left: 396px;
+    background-image: url(https://c.animaapp.com/IoFiGLda/img/rectangle-2.svg);
+    background-size: 100% 100%;
+  }
+  
+  .login .overlap {
+    position: absolute;
+    width: 253px;
+    height: 58px;
+    top: 167px;
+    left: 52px;
+    background-color: #c4c4c4;
+    border-radius: 45px;
+  }
+  
+  .login .text-wrapper {
+    top: 18px;
+    position: absolute;
+    height: 20px;
+    left: 22px;
+    font-family: "Roboto", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 17px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .login .div-wrapper {
+    position: absolute;
+    width: 253px;
+    height: 60px;
+    top: 255px;
+    left: 53px;
+    background-image: url(https://c.animaapp.com/IoFiGLda/img/rectangle-4.svg);
+    background-size: 100% 100%;
+  }
+  
+  .login .div {
+    top: 19px;
+    position: absolute;
+    height: 20px;
+    left: 22px;
+    font-family: "Roboto", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 17px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .login .overlap-2 {
+    position: absolute;
+    width: 133px;
+    height: 50px;
+    top: 392px;
+    left: 113px;
+    background-color: #c4c4c4;
+    border-radius: 45px;
+  }
+  
+  .login .text-wrapper-2 {
+    position: absolute;
+    height: 20px;
+    top: 14px;
+    left: 40px;
+    font-family: "Roboto", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 17px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .login .welcome {
+    position: absolute;
+    top: 42px;
+    left: 36px;
+    font-family: "Roboto", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 42px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .login .don-t-have-an {
+    position: absolute;
+    height: 16px;
+    top: 101px;
+    left: 82px;
+    font-family: "Roboto", Helvetica;
+    font-weight: 400;
+    color: transparent;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .login .span {
+    color: #000000;
+  }
+  
+  .login .text-wrapper-3 {
+    color: #07689f;
+  }
+
+  
+
+  /* Signup Page */
+
+  .signup {
+    background-color: #10502b;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+
+  
+  .signup .overlap-group-wrapper {
+    background-color: #10502b;
+    width: 1152px;
+    height: 700px;
+  }
+  
+  .signup .overlap-group {
+    position: relative;
+    width: 360px;
+    height: 511px;
+    top: 95px;
+    left: 396px;
+    background-image: url(https://c.animaapp.com/62eHqkT9/img/rectangle-2.svg);
+    background-size: 100% 100%;
+  }
+  
+  .signup .overlap {
+    position: absolute;
+    width: 253px;
+    height: 58px;
+    top: 167px;
+    left: 52px;
+    background-color: #c4c4c4;
+    border-radius: 45px;
+  }
+  
+  .signup .text-wrapper {
+    top: 18px;
+    position: absolute;
+    height: 20px;
+    left: 22px;
+    font-family: "Roboto", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 17px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .signup .div-wrapper {
+    position: absolute;
+    width: 253px;
+    height: 60px;
+    top: 255px;
+    left: 53px;
+    background-image: url(https://c.animaapp.com/62eHqkT9/img/rectangle-4.svg);
+    background-size: 100% 100%;
+  }
+  
+  .signup .div {
+    top: 19px;
+    position: absolute;
+    height: 20px;
+    left: 22px;
+    font-family: "Roboto", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 17px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .signup .overlap-2 {
+    position: absolute;
+    width: 133px;
+    height: 50px;
+    top: 392px;
+    left: 113px;
+    background-color: #c4c4c4;
+    border-radius: 45px;
+  }
+  
+  .signup .text-wrapper-2 {
+    position: absolute;
+    height: 20px;
+    top: 14px;
+    left: 40px;
+    font-family: "Roboto", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 17px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .signup .welcome {
+    position: absolute;
+    top: 42px;
+    left: 36px;
+    font-family: "Roboto", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 42px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
