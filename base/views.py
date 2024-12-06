@@ -45,7 +45,7 @@ def logoutUser(request):
 
 # REGISTER PAGE VIEW
 def registerPage(request):
-    page = 'regiser'
+    page = 'register'
     return render(request, 'base/login_register.html')
 
 # HOME VIEW
@@ -79,6 +79,12 @@ def createJob(request):
             return redirect('home')
     context = {'form': form}
     return render(request, 'base/job_form.html', context)
+
+# PROFILE VIEW
+def userProfile(request, pk):
+    user = User.objects.get(id = pk)
+    context = {'user': user}
+    return render(request, 'base/profile.html', context)
 
 @login_required(login_url='login')
 def updateJob(request, pk):

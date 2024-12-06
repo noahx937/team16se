@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<style>
+    .home-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+</style>
+
+<h1>{{user.username}}</h1>
+
+<div class="profile-container">
+
+    <div>
+        <h3>My NinerPathways Menu</h3>
+        <hr>
+        
+        <div>
+            <a href="{% url 'home' %}">Bio</a>
+        </div>
+
+        <div>
+            <a href="{% url 'home' %}">Contact Information</a>
+        </div>
+
+        <div>
+            <a href="{% url 'home' %}">Resume</a>
+        </div>
+
+        <div>
+            <a href="{% url 'home' %}">Portfolio</a>
+        </div>
+
+    </div>
+
+
+{% endblock content %}
