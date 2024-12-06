@@ -8,6 +8,7 @@ urlpatterns = [
 
     path('', views.home, name="home"),
     path('job/<str:pk>/', views.job, name="job"),
+    path('profile/<str:pk>/', views.userProfile, name="user-profile"),
 
     path('create-job/', views.createJob, name="create-job"),
     path('update-job/<str:pk>/', views.updateJob, name="update-job"),

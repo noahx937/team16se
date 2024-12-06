@@ -93,6 +93,12 @@ def createJob(request):
     context = {'form': form}
     return render(request, 'base/job_form.html', context)
 
+# PROFILE VIEW
+def userProfile(request, pk):
+    user = User.objects.get(id = pk)
+    context = {'user': user}
+    return render(request, 'base/profile.html', context)
+
 @login_required(login_url='login')
 def updateJob(request, pk):
     job = Job.objects.get(id=pk)
