@@ -123,3 +123,25 @@ def deleteJob(request, pk):
         job.delete()
         return redirect('home')
     return render(request, 'base/delete.html', {'obj': job})
+
+#Job List View
+def jobList(request):
+    jobs = Job.objects.all()
+    query = request.GET.get('q')
+    job_type = request.GET.get('job_type')
+    location = request.GET.get('location')
+
+    #Filiters
+
+    if query:
+        jobs = jobs.filter(title__icontains=query)
+
+    if job_type:
+        jobs = jobs.filter(job_type=job_type)
+
+    if location:
+        jobs = jobs.filter(location=location)
+
+
+    return render(request, 'base/job_list.html', {'jobs': jobs})
+
