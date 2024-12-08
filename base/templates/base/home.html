@@ -9,7 +9,13 @@
     }
 </style>
 
-<h1>Home Page</h1>
+<div class="top-home">
+    <h1>Home Page</h1>
+
+    {% if request.user.is_authenticated %}
+        <p>Hello, {{request.user}}</p>
+    {% endif %}
+</div>
 
 <div class="home-container">
 
