@@ -30,7 +30,6 @@
     .menu a:hover {
         text-decoration: underline;
     }
-
 </style>
 
 <div class="profile-container">
@@ -45,6 +44,8 @@
             <a href="{% url 'home' %}">Portfolio</a>
         
     </div>
-
+    <div>
+        <a href="{% url 'update-user' %}">update information</a>
+    </div>
 </div>
 {% endblock content %}

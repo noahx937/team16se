@@ -3,11 +3,11 @@ from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
-from .models import Job, Company
-from .forms import JobForm
+from .models import Job, Company, User
+from .forms import JobForm, UserForm
 
 
 # Create your views here.
@@ -129,3 +129,9 @@ def deleteJob(request, pk):
         job.delete()
         return redirect('home')
     return render(request, 'base/delete.html', {'obj': job})
+
+@login_required(login_url='login')
+def updateUser(request):
+    user = request.user
+    form = UserForm(isinstance=user)
+    return render(request, 'base/update-user.html', {'form': form})
