@@ -1,9 +1,32 @@
 {% extends 'main.html' %}
 
 {% block content %}
+<div class="job-container">
+    <div>
+        <h1>{{job.title}}</h1>
+        <p>{{job.description}}</p>
 
-<h1>{{job.name}}</h1>
+        {% if request.user.is_authenticated %}
+        <div class="apply-form">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <input type="submit" name="apply" value="Apply"/>
+            </form>
+        </div>
+        {% endif %}
+    </div>
 
+    <div>
+        <h3>Applicants</h3>
+        <hr>
+
+        {% for user in applicants %}
+            <div>
+                <p>@{{user.username}}</p>
+            </div>
+        {% endfor%}
+    </div>
+</div>  
 
 
 {% endblock content %}

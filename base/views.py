@@ -6,7 +6,7 @@ from django.db.models import Q
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
-from .models import Job, Company
+from .models import Job, Company, Status
 from .forms import JobForm
 
 
@@ -79,7 +79,15 @@ def home(request):
 # JOB VIEW
 def job(request, pk):
     job = Job.objects.get(id=pk)
-    context = {'job': job}        
+    applicants = job.applicants.all()
+    if request.method == 'POST':
+        status = Status.objects.create(
+            user = request.user,
+            job = job
+        )
+        job.applicants.add(request.user)
+        return redirect('job', pk=job.id)
+    context = {'job': job, 'applicants': applicants}        
     return render(request, 'base/job.html', context)
 
 @login_required(login_url='login')
