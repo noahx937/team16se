@@ -1,19 +1,14 @@
 <a href="/">
-    <h1>Logo</h1>
+    <h1>NinerPathways</h1>
 </a>
 
-<form method="GET" action="{% url 'home' %}">
-    <input type="text" name="q" placeholder="Search Job Listings..."/>
-</form>
-
-
 {% if request.user.is_authenticated %}
-<p>Hello, {{request.user}}</p>
-<a href="{% url 'logout' %}">Logout</a>
 
 <div>
     <a href="{% url 'user-profile' user.id%}">{{user.username}}</a>
 </div>
+
+<a href="{% url 'logout' %}">Logout</a>
 
 {% else %}
 
@@ -22,5 +17,9 @@
 </div>
 
 {% endif %}
+
+<form method="GET" action="{% url 'home' %}">
+    <input type="text" name="q" placeholder="Search Job Listings..."/>
+</form>
 
 <hr>

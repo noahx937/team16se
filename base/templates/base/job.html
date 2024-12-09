@@ -2,8 +2,30 @@
 
 {% block content %}
 
-<h1>{{job.name}}</h1>
+<style>
+    .profile-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+</style>
 
+<div class="profile-container"></div>
 
+    <h1> {{job.title}} </h1>
+
+    <h3>Company:</h3>
+    <p> {{job.company}} </p>
+
+    <h3>Description:</h3>
+    <p> {{job.description}} </p>
+
+    <h3>Created:</h3>
+    <p> {{job.created}} </p>
+
+    <h3>Updated: </h3>
+    <p> {{job.updated}} </p>
+
+    <input type="submit" value="Apply" />
+</div>
 
 {% endblock content %}

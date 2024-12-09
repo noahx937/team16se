@@ -7,7 +7,7 @@ from django.db.models import Q
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from .models import Job, Company, User
-from .forms import JobForm, UserForm
+from .forms import JobForm, UserForm, MyUserCreationForm
 
 
 # Create your views here.
@@ -20,21 +20,21 @@ def loginPage(request):
         return redirect('home')
 
     if request.method == 'POST':
-        username = request.POST.get('username').lower()
+        email = request.POST.get('email').lower()
         password = request.POST.get('password')
 
         try:
-            user = User.objects.get(username=username)
+            user = User.objects.get(email=email)
         except:
             messages.error(request, 'User does not exist')
 
-        user = authenticate(request, username=username, password=password)
+        user = authenticate(request, email=email, password=password)
 
         if user is not None:
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, 'Username OR Password does not exist')
+            messages.error(request, 'Email OR Password does not exist')
 
     context = {'page': page}
     return render(request, 'base/login_register.html', context)
@@ -46,10 +46,10 @@ def logoutUser(request):
 
 # REGISTER PAGE VIEW
 def registerPage(request):
-    form = UserCreationForm()
+    form = MyUserCreationForm()
 
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = MyUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.username = user.username.lower()
@@ -105,7 +105,7 @@ def updateJob(request, pk):
     form = JobForm(instance=job)
 
     # restrict others from updating others Jobs
-    if request.user != Job.host:
+    if request.user != job.host:
         return HttpResponse('You are not allowed here')
 
     if request.method == 'POST':
@@ -122,7 +122,7 @@ def deleteJob(request, pk):
     job = Job.objects.get(id=pk)
 
     # restrict others from deleting others Jobs
-    if request.user != Job.host:
+    if request.user != job.host:
         return HttpResponse('You are not allowed here')
     
     if request.method == 'POST':
@@ -133,5 +133,12 @@ def deleteJob(request, pk):
 @login_required(login_url='login')
 def updateUser(request):
     user = request.user
-    form = UserForm(isinstance=user)
+    form = UserForm(instance=user)
+
+    if request.method == 'POST':
+        form = UserForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('user-profile', pk=user.id)
+
     return render(request, 'base/update-user.html', {'form': form})

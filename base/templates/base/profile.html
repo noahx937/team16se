@@ -3,49 +3,43 @@
 {% block content %}
 
 <style>
-    .home-container {
-        display: grid;
-        grid-template-columns: 1fr 3fr;
-        gap: 20px;
-    }
-
     .profile-container {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .menu {
-        border: 1px solid #ccc;
-        padding: 20px;
-    }
-
-    .menu a {
-        display: block;
-        margin-bottom: 10px;
-        color: #007BFF;
-        text-decoration: none;
-    }
-
-    .menu a:hover {
-        text-decoration: underline;
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
     }
 </style>
 
-<div class="profile-container">
+<h1>{{ user.username }}</h1>
 
-    <div>
-        <h3>{{user.username}}'s NinerPathways Menu</h3>
-        <hr>
-        
-            <a href="{% url 'home' %}">Bio</a>
-            <a href="{% url 'home' %}">Contact Information</a>
-            <a href="{% url 'home' %}">Resume</a>
-            <a href="{% url 'home' %}">Portfolio</a>
-        
-    </div>
-    <div>
-        <a href="{% url 'update-user' %}">update information</a>
-    </div>
+<div class="profile-container"></div>
+
+    <h3>About me: {{ user.bio }} </h3>
+
+    <h3>Skills: </h3>
+    {% if user.skills %}
+        <p>{{ user.skills }}</p>
+    {% else %}
+        <p>No skills added yet</p>
+    {% endif %}
+
+    <h3>Resume: </h3>
+    {% if user.resume %}
+        <a href="{{ user.resume.url }}" download>Download Resume</a>
+    {% else %}
+        <p>No resume uploaded.</p>
+    {% endif %}
+
+    <h3>Portfolio: </h3>
+    {% if user.portfolio %}
+        <a href="{{ user.portfolio.url }}" download>Download Portfolio</a>
+    {% else %}
+        <p>No portfolio uploaded.</p>
+    {% endif %}
+
+    <a href="{% url 'update-user' %}">
+        <button>Edit Profile</button>
+    </a>
+
 </div>
+
 {% endblock content %}
