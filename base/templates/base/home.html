@@ -18,7 +18,7 @@
         <hr>
 
         <div>
-            <a href="{% url 'home' %}">All</a>
+            <a href = "{% url 'job-list' %}">All Job Listings</a>
         </div>
 
         {% for company in companies %}
@@ -27,6 +27,8 @@
             </div>
         {% endfor %}
     </div>
+
+
 
     <div>
         <h5>{{job_count}} job listings available</h5>
@@ -43,7 +45,7 @@
                     {% endif %}
                     
                     <span>@{{job.host.username}}</span>
-                    <h5>{{job.id}} -- <a href="{% url 'job' job.id %}">{{job.title}}</a></h5>
+                    <h5><a href="{% url 'job' job.id %}">{{job.title}}</a></h5>
                     <small>{{job.company.name}}</small>
                     <hr>
                 </div>
@@ -54,7 +56,6 @@
         </div>
     </div>
 
-    
 </div>
 
 {% endblock content %}

@@ -27,7 +27,6 @@ class Job(models.Model):
     company = models.ForeignKey(Company, on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
-    #applicants = 
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 

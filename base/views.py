@@ -142,3 +142,20 @@ def updateUser(request):
             return redirect('user-profile', pk=user.id)
 
     return render(request, 'base/update-user.html', {'form': form})
+
+#Job List View
+def jobList(request):
+    jobs = Job.objects.all()
+
+    company_id = request.GET.get('company')
+    host_id = request.GET.get('host')
+
+    #Filters
+    if company_id:
+        jobs = jobs.filter(company_id=company_id)
+
+    if host_id:
+        jobs = jobs.filter(host_id=host_id)
+
+
+    return render(request, 'base/job_list.html', {'jobs': jobs})

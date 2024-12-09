@@ -6,6 +6,7 @@ class JobForm(ModelForm):
     class Meta:
         model = Job
         fields = '__all__'
+        exclude = ['host']
 
 class MyUserCreationForm(UserCreationForm):
     class Meta:

@@ -25,7 +25,12 @@
     <h3>Updated: </h3>
     <p> {{job.updated}} </p>
 
-    <input type="submit" value="Apply" />
+    <p>Click apply and a recruiter will email you with 3-5 business days.</p>
+    <form method="POST" action="{% url 'home' %}">
+        {% csrf_token %}
+        <input type="submit" value="Apply" />
+    </form>
+
 </div>
 
 {% endblock content %}
