@@ -1,33 +1,36 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<div class="job-container">
-    <div class="company-info">
-        <h1>{{job.title}}</h1>
-        <h3>By {{job.company}}</h3>
-        <p>{{job.description}}</p>
 
-        {% if request.user.is_authenticated %}
-        <div class="apply-form">
-            <form method="POST" action="">
-                {% csrf_token %}
-                <input type="submit" name="apply" value="Apply"/>
-            </form>
-        </div>
-        {% endif %}
-    </div>
+<style>
+    .profile-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+</style>
 
-    <div>
-        <h3>Applicants</h3>
-        <hr>
+<div class="profile-container"></div>
 
-        {% for user in applicants %}
-            <div>
-                <p>@{{user.username}}</p>
-            </div>
-        {% endfor%}
-    </div>
-</div>  
+    <h1> {{job.title}} </h1>
 
+    <h3>Company:</h3>
+    <p> {{job.company}} </p>
+
+    <h3>Description:</h3>
+    <p> {{job.description}} </p>
+
+    <h3>Created:</h3>
+    <p> {{job.created}} </p>
+
+    <h3>Updated: </h3>
+    <p> {{job.updated}} </p>
+
+    <p>Click apply and a recruiter will email you with 3-5 business days.</p>
+    <form method="POST" action="{% url 'home' %}">
+        {% csrf_token %}
+        <input type="submit" value="Apply" />
+    </form>
+
+</div>
 
 {% endblock content %}

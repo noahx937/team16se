@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f5;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 0px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #0c3b20;
+        }
+        .search-form{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .search-form input,
+        .search-form select,
+        .search-form button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-form button:hover {
+            background-color: #e0a800;
+        }
+        .job-list {
+            list-style: none;
+            padding: 0;
+        }
+        .job-item {
+            padding: 20px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+        .job-item h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #0c3b2e;
+        }
+        .job-item p {
+            margin: 5px 0;
+        }
+        .job-item a {
+            text-decoration: none;
+            color: #ffba00;
+        }
+        .job-item a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Job List</h1>
+
+        <!--- Search Form  -->
+        <form method="GET" action="{% url 'job-list' %}" class="search-form">
+           <select name = "company">
+                <option value="">All Companies</option>
+                {% for company in companies %}
+                <option value="{{ company.id }}" {% if request.GET.company == company.id|stringformat:"s" %}selected{% endif %}>
+                    {{ company.name }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <select name="host">
+            <option value="">All Hosts</option>
+            {% for host in hosts %}
+                <option value="{{ host.id }}" {% if request.GET.host == host.id|stringformat:"s" %}selected{% endif %}>
+                    {{ host.username }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Filter</button>
+    </form>
+        <!--- Job List  -->
+        <ul class="job-list">
+            {% for job in jobs %}
+                <li class="job-item">
+                    <h2>
+                        <!-- Put url to job detail page here-->
+                        <a href="{% url 'job' job.id %}">{{ job.title }}</a>
+                    </h2>
+
+                    <p><strong>Comapany:</strong> {{ job.company }}</p></p>
+                    <p><strong>Description:</strong> {{ job.description }}</p>
+                    <p><strong>Host:</strong> {{ job.host }}</p>
+                    <p><strong>Created:</strong> {{ job.created }}</p>
+                    <p><strong>Updated:</strong> {{ job.updated }}</p>
+
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

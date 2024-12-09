@@ -1,0 +1,39 @@
+.nav-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    min-height: 100px;
+}
+
+.nav-container > * {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+}
+
+.first-item {
+    justify-content: left;
+}
+
+.second-item {
+    grid-column: span 2;
+    justify-content: center;
+}
+
+.third-item {
+    justify-content: right;
+    gap: 30px;
+}
+
+form {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(170, 120, 217);
+    text-decoration: underline;
+}

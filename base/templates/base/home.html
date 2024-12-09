@@ -2,29 +2,19 @@
 
 {% block content %}
 
-<style>
-    .home-container {
-        display: grid;
-        grid-template-columns: 1fr 3fr;
-    }
-</style>
+{% load static %}
+<link rel='stylesheet' type='text/css' media='screen' href="{% static 'styles/home.css' %}">
 
-<div class="top-home">
-    <h1>Home Page</h1>
-
-    {% if request.user.is_authenticated %}
-        <p>Hello, {{request.user}}</p>
-    {% endif %}
-</div>
+<h1>Home Page</h1>
 
 <div class="home-container">
 
-    <div>
+    <div class="browse-companies">
         <h3>Browse Companies</h3>
         <hr>
 
         <div>
-            <a href="{% url 'home' %}">All</a>
+            <a href = "{% url 'job-list' %}">All Job Listings</a>
         </div>
 
         {% for company in companies %}
@@ -34,7 +24,9 @@
         {% endfor %}
     </div>
 
-    <div>
+
+
+    <div class="job-listings">
         <h5>{{job_count}} job listings available</h5>
         <a href="{% url 'create-job' %}">Create Job Listing</a>
 
@@ -49,7 +41,7 @@
                     {% endif %}
                     
                     <span>@{{job.host.username}}</span>
-                    <h5>{{job.id}} -- <a href="{% url 'job' job.id %}">{{job.title}}</a></h5>
+                    <h5><a href="{% url 'job' job.id %}">{{job.title}}</a></h5>
                     <small>{{job.company.name}}</small>
                     <hr>
                 </div>
@@ -60,7 +52,6 @@
         </div>
     </div>
 
-    
 </div>
 
 {% endblock content %}

@@ -1,0 +1,17 @@
+.home-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 8px;
+}
+
+.browse-companies hr {
+    border: none;
+    height: 1px;
+    background: black;
+    margin-right: 30px;
+}
+
+.job-listings {
+    grid-column: span 3;
+    margin-right: 30px;
+}

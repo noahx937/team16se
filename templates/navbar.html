@@ -1,21 +1,35 @@
+{% load static %}
+<link rel='stylesheet' type='text/css' media='screen' href="{% static 'styles/navbar.css' %}">
+
 <div class="nav-container">
-    <div class="nav-item">
+    <div class="first-item">
         <a href="/">
-            <h1>Home</h1>
+            <h1>NinerPathways</h1>
         </a>
     </div>
 
-    <div class="nav-item">
+    <div class="second-item">
         <form method="GET" action="{% url 'home' %}">
-            <input type="text" name="q" placeholder="Search Job Listings..."/>
+            <input type="text" name="q" placeholder="Search Job Listings..." style="width:100%; font-size: 20px;"/>
         </form>
     </div>
 
-    <div class="nav-item">
+    <div class="third-item">
         {% if request.user.is_authenticated %}
+
+        <div>
+            <a href="{% url 'user-profile' user.id%}">{{user.username}}</a>
+        </div>
         <a href="{% url 'logout' %}">Logout</a>
+
         {% else %}
-        <a href="{% url 'login' %}">Login</a>
+
+        <div>
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+
         {% endif %}
+
     </div>
 </div>
+<hr>

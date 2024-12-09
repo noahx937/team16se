@@ -1,11 +1,6 @@
-  body {
-    padding-top: 4rem;
-    background-color: #f0e5e5;
-  }
-  
-  /* Login Page */
+/* Login Page */
 
-  .login {
+.login {
     background-color: #10502b;
     display: flex;
     flex-direction: row;
@@ -249,94 +244,4 @@
     line-height: normal;
     white-space: nowrap;
   }
- 
   
-/* Navbar Styles */
-
-.nav-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: gray;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.nav-container input {
-  width: 50rem;
-  height: 2rem;
-  background: transparent;
-  border-color: black;
-}
-
-.nav-container a {
-  color: rgb(68, 38, 38);
-  text-decoration: none;
-}
-
-.nav-container a:hover {
-  color: rgb(212, 192, 192);
-  text-decoration: underline;
-}
-
-
-/* Footer Styles */
-
-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #333;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* .footer-links {
-  list-style-type: none;
-  padding: 0;
-}
-
-.footer-links li {
-  display: inline;
-  margin: 0 10px;
-}
-
-.footer-links a {
-  color: white;
-  text-decoration: none;
-}
-
-.footer-links a:hover {
-  text-decoration: underline;
-} */
-
-
-/* Home Page */
-
-.top-home {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-/* Job Styles */
-
-.job-container {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-}
-
-.company-info > p {
-  min-height: 20rem;
-}
