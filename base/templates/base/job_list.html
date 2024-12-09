@@ -73,45 +73,41 @@
 
         <!--- Search Form  -->
         <form method="GET" action="{% url 'job-list' %}" class="search-form">
-            <input
-                type="text"
-                name="q"
-                placeholder="Search by title"
-                value="{{ request.GET.q }}"
-                >
+           <select name = "company">
+                <option value="">All Companies</option>
+                {% for company in companies %}
+                <option value="{{ company.id }}" {% if request.GET.company == company.id|stringformat:"s" %}selected{% endif %}>
+                    {{ company.name }}
+                </option>
+            {% endfor %}
+        </select>
 
-              
+        <select name="host">
+            <option value="">All Hosts</option>
+            {% for host in hosts %}
+                <option value="{{ host.id }}" {% if request.GET.host == host.id|stringformat:"s" %}selected{% endif %}>
+                    {{ host.username }}
+                </option>
+            {% endfor %}
+        </select>
 
-            <select name="job_type">
-                <option value="">All Types</option>
-                <option value="FT" {% if request.GET.type == "FT" %}selected{% endif %}>Full-time</option>
-                <option value="PT" {% if request.GET.type == "PT" %}selected{% endif %}>Part-time</option>
-            </select>
-
-            <input
-                type="text"
-                name="location"
-                placeholder="Search by location"
-                value="{{ request.GET.location }}"
-                >
-            <button type="submit">Search</button>
-        </form>
-
+        <button type="submit">Filter</button>
+    </form>
         <!--- Job List  -->
         <ul class="job-list">
             {% for job in jobs %}
                 <li class="job-item">
                     <h2>
+                        <!-- Put url to job detail page here-->
                         <a href="{% url 'job' job.id %}">{{ job.title }}</a>
                     </h2>
 
                     <p><strong>Comapany:</strong> {{ job.company }}</p></p>
-                    <p><strong>Location:</strong> {{ job.location }}</p>
-                    <p><strong>Job Type</strong>
-                        {% if job.job_type == 'PT' %} Part-Time {% else %} Full-time {% endif %}
-                    </p>
                     <p><strong>Description:</strong> {{ job.description }}</p>
                     <p><strong>Host:</strong> {{ job.host }}</p>
+                    <p><strong>Created:</strong> {{ job.created }}</p>
+                    <p><strong>Updated:</strong> {{ job.updated }}</p>
+                    
                 </li>
             {% endfor %}
         </ul>
