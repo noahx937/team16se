@@ -1,0 +1,16 @@
+.profile-container {
+    display: grid;
+    grid-template-columns: repeat(1fr, 6);}
+
+.profile-container p:last-child {
+    padding-left: 10px;
+}
+
+.job-description {
+    padding-left: 10px;
+    line-height: 20px;
+}
+
+.apply-div {
+    padding-left: 0;
+}

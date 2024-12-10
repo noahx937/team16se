@@ -1,35 +1,41 @@
 {% extends 'main.html' %}
 
 {% block content %}
+{% load static %}
+<link rel='stylesheet' type='text/css' media='screen' href="{% static 'styles/job.css' %}">
+<script src="{% static 'js/job.js' %}" defer></script>
 
-<style>
-    .profile-container {
-        display: grid;
-        grid-template-columns: 1fr 3fr 1fr;
-    }
-</style>
-
-<div class="profile-container"></div>
+<div class="profile-container">
 
     <h1> {{job.title}} </h1>
 
-    <h3>Company:</h3>
-    <p> {{job.company}} </p>
+    <div>
+        <h3>Company:</h3>
+        <p> {{job.company}} </p>
+    </div>
 
-    <h3>Description:</h3>
-    <p> {{job.description}} </p>
+    <div>
+        <h3>Description:</h3>
+        <p> <pre class="job-description">{{job.description}}</pre></p>
+    </div>
 
-    <h3>Created:</h3>
-    <p> {{job.created}} </p>
+    <div>
+        <h3>Created:</h3>
+        <p> {{job.created}} </p>
+    </div>
 
-    <h3>Updated: </h3>
-    <p> {{job.updated}} </p>
+    <div>
+        <h3>Updated: </h3>
+        <p> {{job.updated}} </p>
+    </div>
 
-    <p>Click apply and a recruiter will email you with 3-5 business days.</p>
-    <form method="POST" action="{% url 'home' %}">
-        {% csrf_token %}
-        <input type="submit" value="Apply" />
-    </form>
+    <div class="apply-div">
+        <p>Click apply and a recruiter will email you with 3-5 business days.</p>
+        <form method="POST" action="{% url 'home' %}">
+            {% csrf_token %}
+            <input type="submit" value="Apply" name="apply" />
+        </form>
+    </div>
 
 </div>
 
